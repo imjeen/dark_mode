@@ -14,6 +14,17 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 50.0),
+            child: AnimatedCrossFade(
+              crossFadeState: Theme.of(context).brightness == Brightness.light
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              firstChild: Image.asset('assets/sun.png', width: 200),
+              secondChild: Image.asset('assets/moon.png', width: 200),
+              duration: const Duration(milliseconds: 200),
+            ),
+          ),
           RadioListTile(
             title: const Text('Light Mode'),
             value: ThemeMode.light,
