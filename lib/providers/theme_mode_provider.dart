@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeModeProvider extends ChangeNotifier {
+  static const String themeCacheKey = "THEME_STATUS_V1";
   static ThemeData light = _buildLightTheme(); // ThemeData.dark().copyWith();
   static ThemeData dark = _buildDarkTheme(); // ThemeData.light().copyWith();
 
@@ -12,10 +14,27 @@ class ThemeModeProvider extends ChangeNotifier {
 
   ThemeMode get currentMode => _selectMode;
 
-  void onChange(ThemeMode? value) {
+  Future<void> onChange(ThemeMode? value) async {
     if (value == null) return;
     _selectMode = value;
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    await pref.setString(ThemeModeProvider.themeCacheKey, value.toString());
+
     notifyListeners();
+  }
+
+  static Future<ThemeMode> getDefaultThemeMode() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    final value = pref.getString(ThemeModeProvider.themeCacheKey) ?? '';
+
+    switch (value) {
+      case 'ThemeMode.dark':
+        return ThemeMode.dark;
+      case 'ThemeMode.light':
+        return ThemeMode.light;
+      default:
+        return ThemeMode.system;
+    }
   }
 }
 
