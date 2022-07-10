@@ -51,6 +51,7 @@ ThemeData _buildLightTheme() {
     ),
     iconTheme:
         const IconThemeData(color: Colors.black87, size: 15.0, opacity: 10),
+    hoverColor: Color(0xff4285F4),
   );
 }
 
@@ -67,5 +68,6 @@ ThemeData _buildDarkTheme() {
     ),
     iconTheme:
         const IconThemeData(color: Colors.white, size: 15.0, opacity: 10),
+    hoverColor: Color(0xff3A3A3B),
   );
 }
