@@ -35,6 +35,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^6.0.3
   shared_preferences: ^2.0.15
+  video_player: ^2.4.5
+  circular_reveal_animation: ^2.0.1
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +63,11 @@ flutter:
   assets:
     - assets/sun.png
     - assets/moon.png
+    - assets/logo-light.png
+    - assets/logo_dark.png
+    - assets/bulb_on.png
+    - assets/bulb_off.png
+    - assets/video/splash.mp4
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

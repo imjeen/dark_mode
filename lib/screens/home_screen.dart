@@ -43,6 +43,12 @@ class HomeScreen extends StatelessWidget {
             groupValue: themeProvider.currentMode,
             onChanged: themeProvider.onChange,
           ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/fest');
+            },
+            child: const Text('Go fest'),
+          ),
         ],
       ),
     );

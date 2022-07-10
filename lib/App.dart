@@ -1,3 +1,5 @@
+import 'package:dark_mode/screens/fest_screen.dart';
+import 'package:dark_mode/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +26,11 @@ class App extends StatelessWidget {
       themeMode: themeMode,
       theme: ThemeModeProvider.light,
       darkTheme: ThemeModeProvider.dark,
-      home: const HomeScreen(),
+      home: SplashScreen(),
+      routes: {
+        '/home': (context) => const HomeScreen(),
+        '/fest': (context) => FestScreen(),
+      },
     );
   }
 }
